@@ -74,3 +74,11 @@ root@172.17.0.2's password:
 infopage=> update config set value='Happening right now' where key='now_master_text';
 infopage=> \q
 ```
+
+Logging does not work at the moment due to Docker's peculiar inner
+workings. Use the host syslog, maybe.
+
+The application requires quite a big setup. Since the data source
+does not change very often, a much simpler server stack could be
+used, like an in-memory database and statically generated content
+files. They only need to be updated once per minute.
