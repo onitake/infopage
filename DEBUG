@@ -1,0 +1,68 @@
+How to enable debug mode
+
+- Open infopage/style.css
+- Find the style for tag *
+- Comment out the line that says cursor: none;
+- It should now look like this:
+* {
+	box-sizing: border-box;
+	/* Do not display the mouse cursor */
+	/*cursor: none;*/
+}
+- Find the style for tag html
+- Comment out the line that says overflow: hidden;
+- It should now look like this:
+html {
+	/* Disable scrollbars */
+	/*overflow: hidden;*/
+}
+- Open infopage/fade.js
+- Find the loadpage() function
+- Set the key debug in variable state to true
+- It should now look like this:
+function loadpage(url, dom, time) {
+	var state = {
+		slide: 0,
+		url: url,
+		dom: dom,
+		time: time * 1000,
+		handle: emptyhandler,
+		debug: true,
+	};
+	state.handle();
+}
+
+
+How to disable debug mode
+
+- Open infopage/style.css
+- Find the style for tag *
+- Remove the comment tags from the line that says cursor: none;
+- It should now look like this:
+* {
+	box-sizing: border-box;
+	/* Do not display the mouse cursor */
+	cursor: none;
+}
+- Find the style for tag html
+- Remove the comment tags from the line that says overflow: hidden;
+- It should now look like this:
+html {
+	/* Disable scrollbars */
+	overflow: hidden;
+}
+- Open infopage/fade.js
+- Find the loadpage() function
+- Set the key debug in variable state to false
+- It should now look like this:
+function loadpage(url, dom, time) {
+	var state = {
+		slide: 0,
+		url: url,
+		dom: dom,
+		time: time * 1000,
+		handle: emptyhandler,
+		debug: false,
+	};
+	state.handle();
+}

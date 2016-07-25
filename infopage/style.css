@@ -1,0 +1,147 @@
+@keyframes fade {
+	from { opacity: 0.0; }
+	to { opacity: 1.0; }
+}
+/* For older WebKit browsers */
+@-webkit-keyframes fade {
+	from { opacity: 0.0; }
+	to { opacity: 1.0; }
+}
+* {
+	box-sizing: border-box;
+	/* Do not display the mouse cursor */
+	/*cursor: none;*/
+}
+html {
+	/* Disable scrollbars */
+	/* overflow: hidden; */
+}
+#content {
+	opacity: 0.0;
+	animation-name: fade;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-play-state: paused;
+	animation-fill-mode: both;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	/* For older WebKit browsers */
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-play-state: paused;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+}
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+b {
+	font-weight: 600;
+	letter-spacing: 0.1pt;
+}
+table {
+	border-spacing: 0px;
+	border-collapse: collapse;
+	table-layout: fixed;
+	width: 100%;
+}
+td {
+	height: 100%;
+	padding: 0px;
+	vertical-align: top;
+}
+body {
+	text-transform: uppercase;
+	font-family: Helvetica, Liberation Sans, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 6vh;
+	text-align: left;
+	background-color: black;
+	color: white;
+	width: 100vw;
+	height: 100vh;
+	padding-left: 4vw;
+	padding-top: 4vh;
+	padding-right: 4vw;
+	padding-bottom: 4vh;
+	margin: 0px;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+}
+div#content {
+	width: 100%;
+	height: 100%;
+}
+div#titlepane {
+	font-size: 10vh;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+}
+td.logo {
+	width: 12vh;
+	vertical-align: text-bottom;
+}
+td.title {
+	transform-origin:left top;
+	transform : scale(0.8,1);
+	text-transform: uppercase;
+	font-weight: 600;
+	white-space: nowrap;
+	width: auto;
+	padding-left: 4%;
+}
+td.clock {
+	text-align: right;
+	white-space: nowrap;
+	width: 24%;
+}
+div#contentpane {
+	height: 84%;
+	width: 100%;
+	padding-top: 4vh;
+}
+td.time {
+	text-align: right;
+	white-space: nowrap;
+	padding-left: 4%;
+}
+td.room {
+	text-align: right;
+	white-space: nowrap;
+	padding-left: 4%;
+}
+td.desc {
+	width: 75%;
+}
+td.nowdesc {
+	width: 65%;
+}
+td.loc {
+	width: auto;
+}
+.cell {
+	transform-origin: left;
+	transform: scale(0.8,1);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/* This compensates for the content scaling: 1/80%=125% */
+	width: 125%;
+}
+.room {
+}
+.roomlong {
+	transform-origin: left;
+	transform: scale(0.65,1);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/* This compensates for the content scaling: 1/65%=153.8% */
+	width: 154%;
+}
