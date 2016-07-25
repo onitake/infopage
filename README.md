@@ -1,15 +1,14 @@
 infopage
 ========
 
-Digital Signage Automation Tool
-(with sched.org integration)
-
 Introduction
 ------------
 
-infopage is a web browser based digital signage tool
-that generates and updates automatically, based on
-a database and update scripts.
+infopage is a web site based digital signage presentation
+tool with integration for sched.org.
+
+Event data is fetched into a local database, serving
+as the data source for a dynamically generated slide show.
 
 Copyright
 ---------
@@ -17,6 +16,8 @@ Copyright
 infopage is (c) 2014-2016 Gregor Riepl <onitake@gmail.com>
 All rights reserved.
 
+Scripts, documentation and example content are released
+under the simplified BSD license.
 Please see the LICENSE file for details.
 
 Installation
