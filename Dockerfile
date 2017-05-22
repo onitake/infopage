@@ -5,7 +5,7 @@ FROM debian
 MAINTAINER Gregor Riepl <onitake@gmail.com>
 
 # Install required software: Apache, mod_python, PostgreSQL, OpenSSH, supervisord and a few required Python modules
-RUN apt-get update && apt-get install -y locales python python-psycopg2 python-requests python-lxml postgresql-9.4 postgresql-client apache2 libapache2-mod-python openssh-server supervisor
+RUN apt-get update && apt-get install -y locales tzdata python python-psycopg2 python-requests python-lxml postgresql-9.4 postgresql-client apache2 libapache2-mod-python openssh-server supervisor
 
 # Set the correct timezone and locale (we need a UTF-8 locale or we will run into problems later),
 # then enable UTF-8 in the Postgres client library
