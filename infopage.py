@@ -222,13 +222,13 @@ class Infopage (object):
         events -- an event list in the following format:
         [
           {
-            'id': unique_event_id,
-            'venue': room_name,
-            'venue_id': unique_room_id,
-            'active': true_or_false,
-            'start_time': timestamp_start,
-            'end_time': timestamp_end,
-            'name': event_name
+            'id': unique_event_id [uuid.UUID],
+            'name': event_name [str],
+            'venue_id': unique_room_id [int],
+            'venue': room_name [str],
+            'active': true_or_false [bool],
+            'start_time': timestamp_start [datetime.datetime],
+            'end_time': timestamp_end [datetime.datetime]
           },
           ...
         ]
