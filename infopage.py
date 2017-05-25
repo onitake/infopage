@@ -236,7 +236,7 @@ class Infopage (object):
         def closure(cur, events):
             for e in events:
                 eid = e['id'].int & 0x7fffffff
-                rid = e['venue_id']
+                rid = e['venue_id'] & 0x7fffffff
                 # TODO Upsert requires Postgres 9.5
                 cur.execute("""
                     SELECT id, name
