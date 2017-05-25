@@ -4,6 +4,10 @@ import sys
 import psycopg2
 import json
 import io
+# why is this not on by default?
+import psycopg2.extensions
+psycopg2.extensions.register_type(psycopg2.extensions.UNICODE)
+psycopg2.extensions.register_type(psycopg2.extensions.UNICODEARRAY)
 
 class Infopage (object):
     """
