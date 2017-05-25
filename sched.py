@@ -63,6 +63,8 @@ class Sched(object):
                     e['active'] = e['active'].upper() == 'Y'
                     # Why is this a UUID?
                     e['id'] = UUID(e['id'])
+                    # Why is this a string?
+                    e['venue_id'] = int(e['venue_id'])
                 self.last_update = now
                 return data
             except ValueError as e:
