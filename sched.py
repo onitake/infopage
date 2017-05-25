@@ -104,7 +104,7 @@ with db:
 		rooms = db.rooms()
 		print("Rooms:");
 		for r in rooms:
-			print("{id}, {name}".format(id=r['id'], name=r['name']))
+			print(u"{id}, {name}".format(id=r['id'], name=r['name']))
 
 	elif args.slides:
 		slides = args.slides.split(',')
