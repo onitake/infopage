@@ -402,19 +402,19 @@ class Infopage (object):
         def closure(cur, time, limit, room, withnow):
             limitreal = int(limit)
             if room is None:
-                cur.execute("SELECT events.begins, events.ends, events.name, rooms.name FROM events JOIN rooms ON events.room = rooms.id WHERE events.begins <= %s AND events.ends >= %s LIMIT %s", (time, time, limitreal))
+                cur.execute("SELECT events.begins, events.ends, events.name, rooms.name FROM events JOIN rooms ON events.room = rooms.id WHERE events.begins <= %s AND events.ends >= %s ORDER BY begins LIMIT %s", (time, time, limitreal))
                 if cur.rowcount > 0:
                     for row in cur.fetchall():
                         value['after'].append({ 'begins': row[0], 'ends': row[1], 'name': row[2], 'room': row[3] })
             else:
                 if withnow:
-                    cur.execute("SELECT begins, ends, name FROM events WHERE room = %s AND begins <= %s AND ends >= %s LIMIT 1", (room, time, time))
+                    cur.execute("SELECT begins, ends, name FROM events WHERE room = %s AND begins <= %s AND ends >= %s ORDER BY begins LIMIT 1", (room, time, time))
                     if cur.rowcount > 0:
                         now = cur.fetchone()
                         if now is not None:
                             limitreal -= 1
                             value['now'] = { 'begins': now[0], 'ends': now[1], 'name': now[2], 'room': None }
-                cur.execute("SELECT begins, ends, name FROM events WHERE room = %s AND begins >= %s LIMIT %s", (room, time, limitreal))
+                cur.execute("SELECT begins, ends, name FROM events WHERE room = %s AND begins >= %s ORDER BY begins LIMIT %s", (room, time, limitreal))
                 if cur.rowcount > 0:
                     for row in cur.fetchall():
                         value['after'].append({ 'begins': row[0], 'ends': row[1], 'name': row[2], 'room': None })
