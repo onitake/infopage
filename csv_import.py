@@ -47,37 +47,37 @@ args = parser.parse_args()
 db = Infopage()
 db.loadconfig(args.config)
 if args.database:
-	db.setconfig('dbname', args.database)
+    db.setconfig('dbname', args.database)
 if args.user:
-	db.setconfig('dbuser', args.user)
+    db.setconfig('dbuser', args.user)
 if args.host:
-	db.setconfig('dbhost', args.host)
+    db.setconfig('dbhost', args.host)
 if args.password:
-	db.setconfig('dbpassword', args.password)
+    db.setconfig('dbpassword', args.password)
 
 with db:
-	if args.list:
-		rooms = db.rooms()
-		print("Rooms:");
-		for r in rooms:
-			print("{id}, {name}".format(id=r['id'], name=r['name']))
+    if args.list:
+        rooms = db.rooms()
+        print("Rooms:");
+        for r in rooms:
+            print("{id}, {name}".format(id=r['id'], name=r['name']))
 
-	elif args.slides:
-		slides = args.slides.split(',')
-		order = [ ]
-		for s in slides:
-			if int(s) == -1:
-				order.append({ 'room': None, 'master': 2 })
-			else:
-				order.append({ 'room': int(s), 'master': 0 })
-		db.slides(order)
+    elif args.slides:
+        slides = args.slides.split(',')
+        order = [ ]
+        for s in slides:
+            if int(s) == -1:
+                order.append({ 'room': None, 'master': 2 })
+            else:
+                order.append({ 'room': int(s), 'master': 0 })
+        db.slides(order)
 
-	else:
-		if args.overwrite:
-			db.clear()
-		if args.clear:
-			db.clear(True)
+    else:
+        if args.overwrite:
+            db.clear()
+        if args.clear:
+            db.clear(True)
 
-		if args.input is not None:
+        if args.input is not None:
             events = read_csv(args.input)
             db.update(events)
