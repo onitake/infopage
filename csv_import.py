@@ -19,7 +19,7 @@ def read_csv(csvfile):
         for record in records:
             if record['event'] is not '' and record['location'] is not '':
                 event = {
-                    'id': uuid.uuid5(CSV_NS, record['event']),
+                    'id': uuid.uuid4(),
                     'name': record['event'],
                     'venue_id': adler32(record['location']),
                     'venue': record['location'].decode('utf-8'),
