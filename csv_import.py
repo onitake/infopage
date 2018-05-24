@@ -22,7 +22,7 @@ def read_csv(csvfile):
                     'id': uuid.uuid5(CSV_NS, record['event']),
                     'name': record['event'],
                     'venue_id': adler32(record['location']),
-                    'venue': record['location'],
+                    'venue': record['location'].decode('utf-8'),
                     'active': True,
                     'start_time': datetime.strptime(record['start'], CSV_DATEFMT),
                     'end_time': datetime.strptime(record['end'], CSV_DATEFMT),
@@ -60,7 +60,7 @@ with db:
         rooms = db.rooms()
         print("Rooms:");
         for r in rooms:
-            print("{id}, {name}".format(id=r['id'], name=r['name']))
+            print(u"{id}, {name}".format(id=r['id'], name=r['name']))
 
     elif args.slides:
         slides = args.slides.split(',')
