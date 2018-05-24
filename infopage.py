@@ -9,6 +9,12 @@ import psycopg2.extensions
 psycopg2.extensions.register_type(psycopg2.extensions.UNICODE)
 psycopg2.extensions.register_type(psycopg2.extensions.UNICODEARRAY)
 
+class ConflictError(Exception):
+    def __init__(self, value=""):
+        self.value = value
+    def __str__(self):
+        return repr(self.value)
+
 class Infopage (object):
     """
     infopage database and API access abstraction

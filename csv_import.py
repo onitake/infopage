@@ -78,5 +78,6 @@ with db:
 		if args.clear:
 			db.clear(True)
 
-		events = read_csv(args.input)
-		db.update(events)
+		if args.input is not None:
+            events = read_csv(args.input)
+            db.update(events)
